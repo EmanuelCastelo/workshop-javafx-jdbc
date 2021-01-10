@@ -78,11 +78,13 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			st = conn.prepareStatement("DELETE FROM department WHERE Id = ?");
 			st.setInt(1, id);
 
-			int rows = st.executeUpdate();
+			st.executeUpdate();
 
-			if (rows == 0) {
-				throw new DbException("Id doesn´t exist!");
-			}
+			/*
+			 * int rows = st.executeUpdate();
+			 * 
+			 * if (rows == 0) { throw new DbException("Id doesn´t exist!"); }
+			 */
 
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
